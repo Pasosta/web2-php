@@ -1,0 +1,26 @@
+html {
+    background: #e6e9e9;
+}
+
+
+h1 {
+    color: red;
+}
+
+div {
+}
+
+#firstDiv {
+    font-size: 20px;
+    background-color: aqua;
+}
+
+#secondDiv {
+    font-size: 30px;
+    background-color: beige;
+}
+
+#thirdDiv {
+    font-size: 40px;
+    background-color: cyan;
+}
