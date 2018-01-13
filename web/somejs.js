@@ -1,3 +1,3 @@
-function clicker(){
+function clicker() {
     window.alert("sometext");
 }
