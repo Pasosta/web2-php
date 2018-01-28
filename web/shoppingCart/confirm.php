@@ -1,7 +1,5 @@
 <?php
     session_start();
-    session_unset();
-    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +77,8 @@
                         }
                     }
                     echo "</table>";
+                    session_unset();
+                    session_destroy();
                 ?>
         </div>
     </main>
