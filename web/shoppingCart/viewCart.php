@@ -52,6 +52,7 @@
         <div class="table-responsive">
             <table class="table">
                 <?php
+                    $rows = sizeof($_SESSION["cart"]);
                     $itemTypes = array( 1 => "Standard Widget", 2 => "Ye Olde Widget", 3 => "Rich Man's Widget", 4 => "Poor Man's Widget",
                                         5 => "Sparky Widget", 6 => "Pointy Widget", 7 => "Melty Widget", 8 => "Midnight Samba Widget");
                     for ($i = 0; $i <= 7; $i++) {
