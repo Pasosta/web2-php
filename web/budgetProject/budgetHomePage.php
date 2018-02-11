@@ -86,7 +86,7 @@
                         foreach ($db->query('SELECT categoryName FROM public.categories WHERE budgetId=1') as $row)
                         {
                             echo '<td>';
-                            echo $row['categoryName'];
+                            echo 'name:'. $row['categoryName'];
                             echo '</td>';
                         }
                     ?>
