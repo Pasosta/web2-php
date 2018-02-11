@@ -96,7 +96,7 @@
                     <?php
                         foreach ($db->query('SELECT username, password FROM public.users') as $row)
                         {
-                            echo '<td>'
+                            echo '<td>';
                             echo 'user: ' . $row['username'];
                             echo ' password: ' . $row['password'];
                             echo '</td>';
