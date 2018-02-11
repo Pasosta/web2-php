@@ -48,9 +48,9 @@
             <h1>Budget Application</h1>
             <form action="./loginProcessing.php" method="get">
                 <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
-                <input type="text" name="passwordBox" placeholder="Password"><br/>
+                <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
                 <input type="submit" name="logIn" class="btn btn-primary btn-md" value="Log In">
-                <a class="nav-link" href="../accountCreation.php"><button class="btn secondary-btn btn-md" value="Create Account"></button><span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="../accountCreation.php"><button class="btn btn-secondary btn-md" value="Create Account"></button><span class="sr-only">(current)</span></a>
             </form>
         </div>
     </main>
