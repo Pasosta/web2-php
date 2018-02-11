@@ -74,8 +74,12 @@
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Budgets</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Budget1</button>
-                <button class="dropdown-item" type="button">Budget2</button>
+                <?php
+                    foreach ($db->query('SELECT name FROM public.budgets WHERE userId=1') as $row)
+                        {
+                            echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
+                        }
+                ?>
             </div>
         </div>
         <br/>
