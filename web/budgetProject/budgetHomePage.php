@@ -67,7 +67,7 @@
                     $userName = "UnKnown";
                 }
                 
-                echo "<h1>$userName&apos;s Budgets</h1>";
+                echo "<h1>$user&apos;s Budgets</h1>";
             ?>
         </div>
         
