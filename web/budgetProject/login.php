@@ -51,7 +51,7 @@
                 <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
                 <input type="submit" name="logIn" class="btn btn-primary btn-md" value="Log In">
             </form>
-            <button class="btn btn-success my-2 my-sm-0" onclick="location.href='./createAccount.php'" value="Create Account"></button>
+            <button class="btn btn-success" onclick="location.href='./createAccount.php'" value="Create Account"></button>
         </div>
     </main>
     <!-- /.container -->
