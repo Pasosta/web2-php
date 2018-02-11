@@ -1,5 +1,17 @@
 <?php
     session_start();
+
+    $dbUrl = getenv('DATABASE_URL');
+
+    $dbopts = parse_url($dbUrl);
+
+    $dbHost = $dbopts["host"];
+    $dbPort = $dbopts["port"];
+    $dbUser = $dbopts["user"];
+    $dbPassword = $dbopts["pass"];
+    $dbName = ltrim($dbopts["path"],'/');
+
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 ?>
 
 <!DOCTYPE html>
@@ -65,8 +77,16 @@
             <table class="table">
                 <tr>
                     <td>Week 1</td>
+                    <td>
                     <?php
+                        foreach ($db->query('SELECT username, password FROM public.users') as $row)
+                        {
+                            echo 'user: ' . $row['username'];
+                            echo ' password: ' . $row['password'];
+                            echo '<br/>';
+                        }
                     ?>
+                     </td>
                 </tr>
                 <tr>
                     <td>Week 2</td>
