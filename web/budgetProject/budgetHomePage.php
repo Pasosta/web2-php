@@ -23,7 +23,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Shopping Page</title>
+    <title>Budget Page</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -57,7 +57,7 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username='':user''');
+                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=:\'user\'');
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
