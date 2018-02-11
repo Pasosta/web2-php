@@ -57,7 +57,7 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=:user');
+                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username='':user''');
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -82,11 +82,12 @@
         <div class="table-responsive">
             <table class="table">
                 <tr>
+                    <td></td>
                     <?php
-                        foreach ($db->query('SELECT categoryName FROM public.categories WHERE budgetId=1') as $row)
+                        foreach ($db->query('SELECT categoryname FROM public.categories WHERE budgetId=1') as $row)
                         {
                             echo '<td>';
-                            echo 'name:'. $row['categoryName'];
+                            echo $row['categoryname'];
                             echo '</td>';
                         }
                     ?>
