@@ -50,8 +50,8 @@
                 <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
                 <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
                 <input type="submit" name="logIn" class="btn btn-primary btn-md" value="Log In">
-                <button class="btn btn-secondary btn-md" onclick="location.href='./createAccount.php" value="Create Account"></button>
             </form>
+            <button class="btn btn-success my-2 my-sm-0" onclick="location.href='./createAccount.php'" value="Create Account"></button>
         </div>
     </main>
     <!-- /.container -->
