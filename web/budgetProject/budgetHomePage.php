@@ -57,7 +57,7 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username='':user''');
+                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=:user');
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
