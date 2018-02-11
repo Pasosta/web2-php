@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_REQUEST['logIn']))
+    if(isset($_REQUEST['create']))
     {
         $user = htmlspecialchars($_REQUEST['userNameBox']);
         $pass = htmlspecialchars($_REQUEST['passwordBox']);
@@ -11,4 +11,3 @@
         header('Location: ./budgetHomePage.php');
     }
 ?>
- 
