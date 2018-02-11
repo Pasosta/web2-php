@@ -57,7 +57,7 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=:\'user\'');
+                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=\':user\'');
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -67,7 +67,7 @@
                     $userName = "UnKnown";
                 }
                 
-                echo "<h1>$userName&apos;s Budgets</h1>";
+                echo "<h1>$user&apos;s Budgets</h1>";
             ?>
         </div>
         
@@ -95,11 +95,10 @@
                 <tr>
                     <td>Week 1</td>
                     <?php
-                        foreach ($db->query('SELECT username, password FROM public.users') as $row)
+                        foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=1') as $row)
                         {
                             echo '<td>';
-                            echo 'user: ' . $row['username'];
-                            echo ' password: ' . $row['password'];
+                            echo $row['goalfunds'];
                             echo '</td>';
                         }
                     ?>
@@ -107,6 +106,12 @@
                 <tr>
                     <td>Week 2</td>
                     <?php
+                        foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=1') as $row)
+                        {
+                            echo '<td>';
+                            echo $row['goalfunds'];
+                            echo '</td>';
+                        }
                     ?>
                 </tr>
                 <tr>
