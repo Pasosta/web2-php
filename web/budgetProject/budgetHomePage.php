@@ -57,11 +57,17 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
+                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=:user');
+                    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+                    $stmt->execute();
+                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $userName = $rows['display_name'];
                 } else {
                     $user = "UnNamed";
+                    $userName = "UnKnown";
                 }
                 
-                echo "<h1>$user&apos;s Budgets</h1>"
+                echo "<h1>$userName&apos;s Budgets</h1>"
             ?>
         </div>
         
@@ -76,17 +82,26 @@
         <div class="table-responsive">
             <table class="table">
                 <tr>
+                    <?php
+                        foreach ($db->query('SELECT name FROM public.categories WHERE budgetId=1') as $row)
+                        {
+                            echo '<td>'
+                            echo $row['categoryName'];
+                            echo '</td>';
+                        }
+                    ?>
+                </tr>
+                <tr>
                     <td>Week 1</td>
-                    <td>
                     <?php
                         foreach ($db->query('SELECT username, password FROM public.users') as $row)
                         {
+                            echo '<td>'
                             echo 'user: ' . $row['username'];
                             echo ' password: ' . $row['password'];
-                            echo '<br/>';
+                            echo '</td>';
                         }
                     ?>
-                     </td>
                 </tr>
                 <tr>
                     <td>Week 2</td>
