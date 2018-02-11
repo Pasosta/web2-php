@@ -57,7 +57,7 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=\':user\'');
+                    $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username='':user''');
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -76,9 +76,9 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <?php
                     foreach ($db->query('SELECT name FROM public.budgets WHERE userId=1') as $row)
-                        {
-                            echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
-                        }
+                    {
+                         echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
+                    }
                 ?>
             </div>
         </div>
