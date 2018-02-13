@@ -66,8 +66,12 @@
                     $user = "UnNamed";
                     $userName = "UnKnown";
                 }
+                if $userName == NULL {
+                    echo "<h1>$user's Budgets</h1>";
+                } else {
+                    echo "<h1>$userName's Budgets</h1>"; 
+                }
                 
-                echo "<h1>$userName's Budgets</h1>";
             ?>
         </div>
         
