@@ -61,6 +61,7 @@
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    echo var_dump($rows);
                     $userName = $rows['display_name'];
                 } else {
                     $user = "UnNamed";
