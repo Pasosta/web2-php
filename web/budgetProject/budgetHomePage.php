@@ -96,17 +96,19 @@
                         }
                     ?>
                 </tr>
-                <tr>
-                    <td>Week 1</td>
                     <?php
-                        foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=1') as $row)
-                        {
-                            echo '<td>';
-                            echo $row['goalfunds'];
-                            echo '</td>';
+                        for ($i = 1; $i <= 4; $i++) {
+                            echo "<tr><td>Week ".$i."</td>";
+                            foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=$i') as $row)
+                            {
+                                echo '<td>';
+                                echo $row['goalfunds'];
+                                echo '</td>';
+                            }
+                            echo "</tr>";
                         }
                     ?>
-                </tr>
+                
                 <tr>
                     <td>Week 2</td>
                     <?php
