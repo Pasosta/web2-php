@@ -108,40 +108,6 @@
                             echo "</tr>";
                         }
                     ?>
-                
-                <tr>
-                    <td>Week 2</td>
-                    <?php
-                        foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=2') as $row)
-                        {
-                            echo '<td>';
-                            echo $row['goalfunds'];
-                            echo '</td>';
-                        }
-                    ?>
-                </tr>
-                <tr>
-                    <td>Week 3</td>
-                    <?php
-                        foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=3') as $row)
-                        {
-                            echo '<td>';
-                            echo $row['goalfunds'];
-                            echo '</td>';
-                        }
-                    ?>
-                </tr>
-                <tr>
-                    <td>Week 4</td>
-                    <?php
-                        foreach ($db->query('SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=4') as $row)
-                        {
-                            echo '<td>';
-                            echo $row['goalfunds'];
-                            echo '</td>';
-                        }
-                    ?>
-                </tr>
             </table>
         </div>
     </main>
