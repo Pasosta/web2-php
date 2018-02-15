@@ -18,7 +18,7 @@
         //will need to check to see if these are filled, will do later
         $user = htmlspecialchars($_REQUEST['userNameBox']);
         $pass = htmlspecialchars($_REQUEST['passwordBox']);
-        $displayName = htmlspecialchars($_REQUEST['displayBox']);
+        $display = htmlspecialchars($_REQUEST['displayBox']);
         
         $stmt = $db->prepare('INSERT INTO users(username, password, display_name) VALUES (:user, :pass, :display)');
         $stmt->bindValue(':user', $user, PDO::PARAM_STR);
