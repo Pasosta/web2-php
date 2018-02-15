@@ -28,9 +28,9 @@
         
         foreach ($db->query('SELECT name FROM users') as $row)
         {
-            echo "<p>".$row['name']."</p>";
+            print "<p>".$row['name']."</p>";
         }
         
-        //header('Location: ./login.php');
+        header('Location: ./login.php');
     }
 ?>
