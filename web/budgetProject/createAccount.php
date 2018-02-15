@@ -49,6 +49,7 @@
             <form action="./creationProcessing.php" method="post">
                 <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
                 <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
+                <input type="text" name="displayBox" placeholder="Display Name"><br/><br/>
                 <input type="submit" name="create" class="btn btn-primary btn-md" value="Create">
             </form>
         </div>
