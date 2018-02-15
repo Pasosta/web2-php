@@ -26,6 +26,11 @@
         $stmt->bindValue(':display', $display, PDO::PARAM_STR);
         $stmt->execute();
         
-        header('Location: ./login.php');
+        foreach ($db->query('SELECT name FROM users') as $row)
+        {
+            echo "<p>".$row['name']."</p>";
+        }
+        
+        //header('Location: ./login.php');
     }
 ?>
