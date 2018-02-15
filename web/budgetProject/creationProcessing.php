@@ -20,7 +20,7 @@
         $pass = htmlspecialchars($_REQUEST['passwordBox']);
         $displayName = htmlspecialchars($_REQUEST['displayBox']);
         
-        $stmt = $db->prepare('INSERT INTO users(username, password, displayname) VALUES (:user, :pass, :display)');
+        $stmt = $db->prepare('INSERT INTO users(username, password, display_name) VALUES (:user, :pass, :display)');
         $stmt->bindValue(':user', $user, PDO::PARAM_STR);
         $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
         $stmt->bindValue(':display', $display, PDO::PARAM_STR);
