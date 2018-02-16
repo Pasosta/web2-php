@@ -9,6 +9,7 @@
             $_SESSION['user'] = $user;
         }
         header('Location: ./budgetHomePage.php');
+        die();
     }
 ?>
  
