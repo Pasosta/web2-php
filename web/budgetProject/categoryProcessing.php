@@ -31,12 +31,12 @@
         
         $catid = $db->lastInsertId("categories_id_seq");
         
-        $weeksstmt = $db->prepare('INSERT INTO public.goals(goalFunds, goalWeek, categoryID, budgetId) VALUES(:wk1, 1, 1, 1),(:wk2, 2, 1, 1),(:wk3, 3, 1, 1),(:wk4, 4, :catid, :budid)');
+        $weeksstmt = $db->prepare('INSERT INTO public.goals(goalFunds, goalWeek, categoryID, budgetId) VALUES(:wk1, 1, :catid, :budid),(:wk2, 2, :catid, :budid),(:wk3, 3, :catid, :budid),(:wk4, 4, :catid, :budid)');
         $weeksstmt->bindValue(':wk1', $wk1, PDO::PARAM_STR);
         $weeksstmt->bindValue(':wk2', $wk2, PDO::PARAM_STR);
         $weeksstmt->bindValue(':wk3', $wk3, PDO::PARAM_STR);
         $weeksstmt->bindValue(':wk4', $wk4, PDO::PARAM_STR);
-        $weeksstmt->bindValue(':catid', $wk3, PDO::PARAM_STR);
+        $weeksstmt->bindValue(':catid', $catid, PDO::PARAM_STR);
         $weeksstmt->bindValue(':budid', $budid, PDO::PARAM_INT);
         
         $weeksstmt->execute();
