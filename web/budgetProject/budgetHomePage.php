@@ -80,7 +80,7 @@
                     {
                          echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
                     }
-                    echo "<button class='dropdown-item' type='button'>Add Budget</button>";
+                    echo "<a class='dropdown-item' type='button' href='createBudget.php'>Add Budget</a>";
                 ?>
             </div>
         </div>
