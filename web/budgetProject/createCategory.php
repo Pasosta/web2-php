@@ -1,5 +1,4 @@
 <?php
-    include_once('categoryProcessing.php');
     session_start();
 ?>
 
