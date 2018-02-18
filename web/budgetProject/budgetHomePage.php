@@ -88,6 +88,7 @@
                         $stmt->bindValue(':user', $userId['id'], PDO::PARAM_STR);
                         $stmt->execute();
                         $budId = $stmt->fetch(PDO::FETCH_ASSOC);
+                        var_dump($budId);
                         echo $budId['id'];
                      ?>
                      "><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
