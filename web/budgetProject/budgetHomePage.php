@@ -60,6 +60,13 @@
                     $stmt = $db->prepare('SELECT display_name FROM public.users WHERE username=:user');
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
+                    
+                    $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
+                    $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
+                    $idfetch->execute();
+                    
+                    $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
+                    
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $userName = $rows[0]['display_name'];
                 } else {
@@ -73,10 +80,18 @@
         
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="budgetDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Budgets</button>
-            <a href="createCategory.php"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
+            <a href="createCategory.php?budgetid= 
+                     <?php 
+                        $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
+                        $stmt->bindValue(':user', $userId, PDO::PARAM_STR);
+                        $stmt->execute();
+                        $budId = $stmt->fetch(PDO::FETCH_ASSOC);
+                        echo $budId;
+                     ?>
+                     "><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
                 <?php
-                    foreach ($db->query('SELECT name FROM public.budgets WHERE userId=1') as $row)
+                    foreach ($db->query("SELECT name FROM public.budgets WHERE userId=$userId") as $row)
                     {
                          echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
                     }
@@ -90,7 +105,7 @@
                 <tr>
                     <td></td>
                     <?php
-                        foreach ($db->query('SELECT categoryname FROM public.categories WHERE budgetId=1') as $row)
+                        foreach ($db->query("SELECT categoryname FROM public.categories WHERE budgetId=$budId") as $row)
                         {
                             echo '<td>';
                             echo $row['categoryname'];

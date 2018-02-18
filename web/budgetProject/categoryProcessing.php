@@ -16,15 +16,19 @@
     if(isset($_REQUEST['create']))
     {
         //will need to check to see if these are filled, will do later
-        $user = htmlspecialchars($_REQUEST['userNameBox']);
-        $pass = htmlspecialchars($_REQUEST['passwordBox']);
-        $display = htmlspecialchars($_REQUEST['displayBox']);
+        $budid = $_GET['budgetid']
+        $wk1 = htmlspecialchars($_REQUEST['wk1']);
+        $wk2 = htmlspecialchars($_REQUEST['wk2']);
+        $wk3 = htmlspecialchars($_REQUEST['wk3']);
+        $wk4 = htmlspecialchars($_REQUEST['wk4']);
+        $name = htmlspecialchars($_REQUEST['name']);
         
-        $stmt = $db->prepare('INSERT INTO users(username, password, display_name) VALUES (:user, :pass, :display)');
-        $stmt->bindValue(':user', $user, PDO::PARAM_STR);
-        $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
-        $stmt->bindValue(':display', $display, PDO::PARAM_STR);
+        $stmt = $db->prepare('INSERT INTO categories(categoryname, budgetid) VALUES (:name, :budid)');
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':budid', $budid, PDO::PARAM_INT);
         $stmt->execute();
+        
+        
         
         header('Location: ./budgetHomePage.php');
         die();
