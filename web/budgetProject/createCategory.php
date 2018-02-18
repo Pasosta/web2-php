@@ -1,9 +1,6 @@
 <?php
-    include_once('loginProcessing.php');
+    include_once('categoryProcessing.php');
     session_start();
-    if(!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
 ?>
 
 <!DOCTYPE html>
