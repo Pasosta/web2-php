@@ -61,11 +61,7 @@
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     
-                    $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
-                    $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
-                    $idfetch->execute();
                     
-                    $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
                     
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $userName = $rows[0]['display_name'];
@@ -82,6 +78,13 @@
             <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="budgetDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Budgets</button>
             <a href="createCategory.php?budgetid= 
                      <?php 
+                        $user = $_SESSION['user'];
+                        $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
+                        $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
+                        $idfetch->execute();
+                    
+                        $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
+                        var_dump($userId);
                         $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
                         $stmt->bindValue(':user', $userId, PDO::PARAM_STR);
                         $stmt->execute();
