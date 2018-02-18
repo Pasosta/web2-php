@@ -12,6 +12,28 @@
     $dbName = ltrim($dbopts["path"],'/');
 
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+    if(isset($_GET['budgetname'])) {
+        $bName = $_GET['budgetname'];
+        $stmt = $db->prepare('SELECT id FROM budgets WHERE name=:name');
+        $stmt->bindValue(':name', $bName, PDO::PARAM_STR);
+        $stmt->execute();
+        $fetchedBudId = $stmt->fetch(PDO::FETCH_ASSOC);
+        $bId = $fetchedBudId['id'];
+    } else {
+        $user = $_SESSION['user'];
+        $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
+        $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
+        $idfetch->execute();
+                    
+        $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
+        $uId = $userId['id'];
+        $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
+        $stmt->bindValue(':user', $uId, PDO::PARAM_STR);
+        $stmt->execute();
+        $budId = $stmt->fetch(PDO::FETCH_ASSOC);
+        $bId = $budId['id'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -61,8 +83,6 @@
                     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt->execute();
                     
-                    
-                    
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $userName = $rows[0]['display_name'];
                 } else {
@@ -76,26 +96,12 @@
         
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="budgetDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Budgets</button>
-            <a href="createCategory.php?budgetid=<?php 
-                        $user = $_SESSION['user'];
-                        $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
-                        $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
-                        $idfetch->execute();
-                    
-                        $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
-                        $uId = $userId['id'];
-                        $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
-                        $stmt->bindValue(':user', $uId, PDO::PARAM_STR);
-                        $stmt->execute();
-                        $budId = $stmt->fetch(PDO::FETCH_ASSOC);
-                        $bId = $budId['id'];
-                        echo $bId;
-                     ?>"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
+            <a href="createCategory.php?budgetid=<?php echo $bId; ?>"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
                 <?php
                     foreach ($db->query("SELECT name FROM public.budgets WHERE userId=$uId") as $row)
                     {
-                         echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
+                         echo "<button class='dropdown-item' type='button' onclick='location.href =\"budgetHomePage.php?budgetname=".$row['name'].";\"'>".$row['name']."</button>";
                     }
                     echo "<a class='dropdown-item' type='button' href='createBudget.php'>Add Budget</a>";
                 ?>
