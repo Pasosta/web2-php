@@ -16,7 +16,7 @@
     if(isset($_REQUEST['create']))
     {
         //will need to check to see if these are filled, will do later
-        $budid = $_GET['budgetid']
+        $budid = $_GET['budgetid'];
         $wk1 = htmlspecialchars($_REQUEST['wk1']);
         $wk2 = htmlspecialchars($_REQUEST['wk2']);
         $wk3 = htmlspecialchars($_REQUEST['wk3']);
@@ -27,8 +27,6 @@
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':budid', $budid, PDO::PARAM_INT);
         $stmt->execute();
-        
-        
         
         header('Location: ./budgetHomePage.php');
         die();
