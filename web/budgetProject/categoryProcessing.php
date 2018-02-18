@@ -29,7 +29,7 @@
         $stmt->bindValue(':budid', $budid, PDO::PARAM_INT);
         $stmt->execute();
         
-        header('Location: ./budgetHomePage.php');
-        die();
+        //header('Location: ./budgetHomePage.php');
+        //die();
     }
 ?>
