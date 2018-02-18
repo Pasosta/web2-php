@@ -13,6 +13,14 @@
 
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
+    $user = $_SESSION['user'];
+    $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
+    $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
+    $idfetch->execute();
+                    
+    $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
+    $uId = $userId['id'];
+
     if(isset($_GET['budgetname'])) {
         $bName = $_GET['budgetname'];
         $stmt = $db->prepare('SELECT id FROM budgets WHERE name=:name');
@@ -21,13 +29,6 @@
         $fetchedBudId = $stmt->fetch(PDO::FETCH_ASSOC);
         $bId = $fetchedBudId['id'];
     } else {
-        $user = $_SESSION['user'];
-        $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
-        $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
-        $idfetch->execute();
-                    
-        $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
-        $uId = $userId['id'];
         $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
         $stmt->bindValue(':user', $uId, PDO::PARAM_STR);
         $stmt->execute();
