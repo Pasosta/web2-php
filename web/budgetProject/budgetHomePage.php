@@ -27,7 +27,6 @@
         $stmt->bindValue(':name', $bName, PDO::PARAM_STR);
         $stmt->execute();
         $fetchedBudId = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($fetchedBudId);
         $bId = $fetchedBudId['id'];
     } else {
         $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
@@ -126,11 +125,13 @@
                     <?php
                         for ($i = 1; $i <= 4; $i++) {
                             echo "<tr><td>Week ".$i."</td>";
-                            foreach ($db->query("SELECT goalfunds FROM public.goals WHERE categoryID=1 AND goalweek=$i") as $row)
-                            {
-                                echo '<td>';
-                                echo $row['goalfunds'];
-                                echo '</td>';
+                            foreach ($db->query("SELECT id FROM public.categories WHERE budgetid=$bId") as $catId) {
+                                foreach ($db->query("SELECT goalfunds FROM public.goals WHERE categoryID=$catId AND goalweek=$i") as $row)
+                                {
+                                    echo '<td>';
+                                    echo $row['goalfunds'];
+                                    echo '</td>';
+                                }
                             }
                             echo "</tr>";
                         }
