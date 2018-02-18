@@ -126,7 +126,8 @@
                         for ($i = 1; $i <= 4; $i++) {
                             echo "<tr><td>Week ".$i."</td>";
                             foreach ($db->query("SELECT id FROM public.categories WHERE budgetid=$bId") as $catId) {
-                                foreach ($db->query("SELECT goalfunds FROM public.goals WHERE categoryID=$catId AND goalweek=$i") as $row)
+                                $cId = $catId['id'];
+                                foreach ($db->query("SELECT goalfunds FROM public.goals WHERE categoryID=$cId AND goalweek=$i") as $row)
                                 {
                                     echo '<td>';
                                     echo $row['goalfunds'];
