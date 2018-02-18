@@ -84,12 +84,11 @@
                         $idfetch->execute();
                     
                         $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
-                        var_dump($userId);
                         $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
-                        $stmt->bindValue(':user', $userId, PDO::PARAM_STR);
+                        $stmt->bindValue(':user', $userId['id'], PDO::PARAM_STR);
                         $stmt->execute();
                         $budId = $stmt->fetch(PDO::FETCH_ASSOC);
-                        echo $budId;
+                        echo $budId['id'];
                      ?>
                      "><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
