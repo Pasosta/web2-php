@@ -17,12 +17,13 @@
     {
         //will need to check to see if these are filled, will do later
         $budid = $_GET['budgetid'];
+        var_dump($budid);
         $wk1 = htmlspecialchars($_REQUEST['wk1']);
         $wk2 = htmlspecialchars($_REQUEST['wk2']);
         $wk3 = htmlspecialchars($_REQUEST['wk3']);
         $wk4 = htmlspecialchars($_REQUEST['wk4']);
         $name = htmlspecialchars($_REQUEST['name']);
-        
+        var_dump($name);
         $stmt = $db->prepare('INSERT INTO categories(categoryname, budgetid) VALUES (:name, :budid)');
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':budid', $budid, PDO::PARAM_INT);
