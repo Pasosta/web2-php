@@ -73,7 +73,7 @@
         
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="budgetDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Budgets</button>
-            <button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button>
+            <a href="createCategory.php"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
                 <?php
                     foreach ($db->query('SELECT name FROM public.budgets WHERE userId=1') as $row)
