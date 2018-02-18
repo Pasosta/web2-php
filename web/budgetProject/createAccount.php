@@ -43,7 +43,7 @@
 
         <div class="starter-template">
             <h1>Account Creation</h1>
-            <form action="./creationProcessing.php" method="get">
+            <form action="./creationProcessing.php" method="post">
                 <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
                 <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
                 <input type="text" name="displayBox" placeholder="Display Name"><br/><br/>

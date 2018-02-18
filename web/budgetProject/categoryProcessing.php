@@ -16,7 +16,7 @@
     if(isset($_REQUEST['create']))
     {
         //will need to check to see if these are filled, will do later
-        $budid = $_GET['budgetid'];
+        $budid = $_REQUEST['budgetid'];
         var_dump($budid);
         $wk1 = htmlspecialchars($_REQUEST['wk1']);
         $wk2 = htmlspecialchars($_REQUEST['wk2']);

@@ -26,7 +26,7 @@
         $stmt->bindValue(':display', $display, PDO::PARAM_STR);
         $stmt->execute();
     
-        //header('Location: ./login.php');
-        //die();
+        header('Location: ./login.php');
+        die();
     }
 ?>
