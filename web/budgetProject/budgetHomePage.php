@@ -76,8 +76,7 @@
         
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="budgetDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Budgets</button>
-            <a href="createCategory.php?budgetid= 
-                     <?php 
+            <a href="createCategory.php?budgetid=<?php 
                         $user = $_SESSION['user'];
                         $idfetch = $db->prepare('SELECT id FROM users WHERE username=:user');
                         $idfetch->bindValue(':user', $user, PDO::PARAM_STR);
@@ -90,8 +89,7 @@
                         $budId = $stmt->fetch(PDO::FETCH_ASSOC);
                         $id = $budId['id'];
                         echo $id;
-                     ?>
-                     "><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
+                     ?>"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
                 <?php
                     foreach ($db->query("SELECT name FROM public.budgets WHERE userId=$userId") as $row)
