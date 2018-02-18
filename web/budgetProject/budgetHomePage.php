@@ -83,16 +83,17 @@
                         $idfetch->execute();
                     
                         $userId = $idfetch->fetch(PDO::FETCH_ASSOC);
+                        $uId = $userId['id'];
                         $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
-                        $stmt->bindValue(':user', $userId['id'], PDO::PARAM_STR);
+                        $stmt->bindValue(':user', $uId, PDO::PARAM_STR);
                         $stmt->execute();
                         $budId = $stmt->fetch(PDO::FETCH_ASSOC);
-                        $id = $budId['id'];
-                        echo $id;
+                        $bId = $budId['id'];
+                        echo $bId;
                      ?>"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
                 <?php
-                    foreach ($db->query("SELECT name FROM public.budgets WHERE userId=$userId") as $row)
+                    foreach ($db->query("SELECT name FROM public.budgets WHERE userId=$uId") as $row)
                     {
                          echo "<button class='dropdown-item' type='button'>".$row['name']."</button>";
                     }
@@ -106,7 +107,7 @@
                 <tr>
                     <td></td>
                     <?php
-                        foreach ($db->query("SELECT categoryname FROM public.categories WHERE budgetId=$budId") as $row)
+                        foreach ($db->query("SELECT categoryname FROM public.categories WHERE budgetId=$bId") as $row)
                         {
                             echo '<td>';
                             echo $row['categoryname'];
