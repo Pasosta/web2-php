@@ -26,13 +26,16 @@
         $useridStmt = $db->prepare('SELECT id FROM users WHERE username = :username');
         $useridStmt->bindValue(':username', $username, PDO::PARAM_STR);
         $useridStmt->execute();
+        
         $userid = $useridStmt->fetch(PDO::FETCH_ASSOC);
+        
+        var_dump($userid);
         $stmt = $db->prepare('INSERT INTO budgets(name, userid) VALUES (:name, :userid)');
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
         $stmt->execute();
         $newBudId = $db->lastInsertId("budgets_id_seq");
-        header("Location: ./createCategory.php?budgetid=$newBudId");
-        die();
+        //header("Location: ./createCategory.php?budgetid=$newBudId");
+        //die();
     }
 ?>
