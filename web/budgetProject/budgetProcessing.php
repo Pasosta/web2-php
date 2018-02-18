@@ -29,10 +29,10 @@
         
         $userid = $useridStmt->fetch(PDO::FETCH_ASSOC);
         
-        var_dump($userid);
+        var_dump($name);
         $stmt = $db->prepare('INSERT INTO budgets(name, userid) VALUES (:name, :userid)');
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-        $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
+        $stmt->bindValue(':userid', $userid['id'], PDO::PARAM_INT);
         $stmt->execute();
         $newBudId = $db->lastInsertId("budgets_id_seq");
         //header("Location: ./createCategory.php?budgetid=$newBudId");
