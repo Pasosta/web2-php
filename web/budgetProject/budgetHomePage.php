@@ -89,7 +89,7 @@
                         $stmt->execute();
                         $budId = $stmt->fetch(PDO::FETCH_ASSOC);
                         $bId = $budId['id'];
-                        echo $bId;
+                        echo http_build_query($bId);
                      ?>"><button class="btn btn-success pull-right" type="button" id="addCategoryBtn">Add Category</button></a>
             <div class="dropdown-menu" aria-labelledby="budgetDropdown">
                 <?php
