@@ -27,6 +27,7 @@
         $stmt->bindValue(':name', $bName, PDO::PARAM_STR);
         $stmt->execute();
         $fetchedBudId = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump($fetchedBudId);
         $bId = $fetchedBudId['id'];
     } else {
         $stmt = $db->prepare('SELECT id FROM budgets WHERE userId=:user');
