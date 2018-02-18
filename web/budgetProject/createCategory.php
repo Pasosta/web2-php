@@ -43,9 +43,11 @@
         <div class="starter-template">
             <h1>Category Creation</h1>
             <form action="./categoryProcessing.php" method="post">
-                <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
-                <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
-                <input type="text" name="displayBox" placeholder="Display Name"><br/><br/>
+                <input type="text" name="name" placeholder="Category Name"><br/><br/>
+                Week 1: <input type="number" min="1" step="any" name="wk1"><br/><br/>
+                Week 2: <input type="number" min="1" step="any" name="wk2"><br/><br/>
+                Week 3: <input type="number" min="1" step="any" name="wk3"><br/><br/>
+                Week 4: <input type="number" min="1" step="any" name="wk4"><br/><br/>
                 <input type="submit" name="create" class="btn btn-primary btn-md" value="Create">
             </form>
         </div>
