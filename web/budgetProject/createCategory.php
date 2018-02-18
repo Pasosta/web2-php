@@ -1,5 +1,9 @@
 <?php
+    include_once('loginProcessing.php');
     session_start();
+    if(!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +15,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Category Creation</title>
+    <title>Account Creation</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -41,13 +45,11 @@
     <main role="main" class="container">
 
         <div class="starter-template">
-            <h1>Category Creation</h1>
-            <form action="./categoryProcessing.php" method="post">
-                <input type="text" name="name" placeholder="Category Name"><br/><br/>
-                Week 1: <input type="number" min="1" step="any" name="wk1"><br/><br/>
-                Week 2: <input type="number" min="1" step="any" name="wk2"><br/><br/>
-                Week 3: <input type="number" min="1" step="any" name="wk3"><br/><br/>
-                Week 4: <input type="number" min="1" step="any" name="wk4"><br/><br/>
+            <h1>Account Creation</h1>
+            <form action="./creationProcessing.php" method="post">
+                <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
+                <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
+                <input type="text" name="displayBox" placeholder="Display Name"><br/><br/>
                 <input type="submit" name="create" class="btn btn-primary btn-md" value="Create">
             </form>
         </div>
