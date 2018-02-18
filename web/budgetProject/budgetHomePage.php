@@ -103,7 +103,7 @@
                 <?php
                     foreach ($db->query("SELECT name FROM public.budgets WHERE userId=$uId") as $row)
                     {
-                         echo "<button class='dropdown-item' type='button' onclick='location.href =\"budgetHomePage.php?budgetname=".$row['name'].";\"'>".$row['name']."</button>";
+                         echo "<button class='dropdown-item' type='button' onclick='location.href =\"budgetHomePage.php?budgetname=".$row['name']."\"'>".$row['name']."</button>";
                     }
                     echo "<a class='dropdown-item' type='button' href='createBudget.php'>Add Budget</a>";
                 ?>
