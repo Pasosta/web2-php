@@ -15,7 +15,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Account Creation</title>
+    <title>Budget Creation</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -45,11 +45,9 @@
     <main role="main" class="container">
 
         <div class="starter-template">
-            <h1>Account Creation</h1>
-            <form action="./creationProcessing.php" method="post">
-                <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
-                <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
-                <input type="text" name="displayBox" placeholder="Display Name"><br/><br/>
+            <h1>Budget Creation</h1>
+            <form action="./budgetProcessing.php" method="post">
+                <input type="text" name="name" placeholder="Budget Name"><br/><br/>
                 <input type="submit" name="create" class="btn btn-primary btn-md" value="Create">
             </form>
         </div>

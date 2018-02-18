@@ -25,8 +25,8 @@
         $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
         $stmt->bindValue(':display', $display, PDO::PARAM_STR);
         $stmt->execute();
-    
-        header('Location: ./login.php');
+        
+        header('Location: ./budgetHomePage.php');
         die();
     }
 ?>
