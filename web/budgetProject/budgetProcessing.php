@@ -1,12 +1,6 @@
 <?php
     session_start();
 
-    function console_log( $data ){
-        echo '<script>';
-        echo 'console.log('. json_encode( $data ) .')';
-        echo '</script>';
-    }
-
     $dbUrl = getenv('DATABASE_URL');
     $dbopts = parse_url($dbUrl);
 
