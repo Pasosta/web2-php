@@ -13,12 +13,12 @@
 
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-    if(isset($_REQUEST['create']))
+    if(isset($_POST['create']))
     {
         //will need to check to see if these are filled, will do later
-        $user = htmlspecialchars($_REQUEST['userNameBox']);
-        $pass = htmlspecialchars($_REQUEST['passwordBox']);
-        $display = htmlspecialchars($_REQUEST['displayBox']);
+        $user = htmlspecialchars($_POST['userNameBox']);
+        $pass = htmlspecialchars($_POST['passwordBox']);
+        $display = htmlspecialchars($_POST['displayBox']);
         
         $stmt = $db->prepare('INSERT INTO users(username, password, display_name) VALUES (:user, :pass, :display)');
         $stmt->bindValue(':user', $user, PDO::PARAM_STR);
