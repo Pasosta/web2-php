@@ -12,17 +12,17 @@
         
         $dbpass = $useridStmt->fetch(PDO::FETCH_ASSOC);
         
-        if (password_verify($inputpass, $dbpass)) {
-            if(!isset($_SESSION['user']))
-            {
-                $_SESSION['user'] = $user;
-            }
-            header('Location: ./budgetHomePage.php');
-            die();
-        } else {
-            header('Location: ./login.php');
-            die();
-        }
+//        if (password_verify($inputpass, $dbpass)) {
+//            if(!isset($_SESSION['user']))
+//            {
+//                $_SESSION['user'] = $user;
+//            }
+//            header('Location: ./budgetHomePage.php');
+//            die();
+//        } else {
+//            header('Location: ./login.php');
+//            die();
+//        }
         
         
     }
