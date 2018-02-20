@@ -18,10 +18,10 @@
 
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-    if(isset($_POST['create']))
+    if(isset($_REQUEST['create']))
     {
         //will need to check to see if these are filled, will do later
-        $name = htmlspecialchars($_POST['name']);
+        $name = htmlspecialchars($_REQUEST['name']);
         $username = $_SESSION['user'];
         $useridStmt = $db->prepare('SELECT id FROM users WHERE username = :username');
         $useridStmt->bindValue(':username', $username, PDO::PARAM_STR);

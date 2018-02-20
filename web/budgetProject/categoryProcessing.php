@@ -13,16 +13,16 @@
 
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-    if(isset($_POST['create']))
+    if(isset($_REQUEST['create']))
     {
         //will need to check to see if these are filled, will do later
-        $budid = $_GET['budgetid'];
+        $budid = $_REQUEST['budgetid'];
  
-        $wk1 = htmlspecialchars($_POST['wk1']);
-        $wk2 = htmlspecialchars($_POST['wk2']);
-        $wk3 = htmlspecialchars($_POST['wk3']);
-        $wk4 = htmlspecialchars($_POST['wk4']);
-        $name = htmlspecialchars($_POST['name']);
+        $wk1 = htmlspecialchars($_REQUEST['wk1']);
+        $wk2 = htmlspecialchars($_REQUEST['wk2']);
+        $wk3 = htmlspecialchars($_REQUEST['wk3']);
+        $wk4 = htmlspecialchars($_REQUEST['wk4']);
+        $name = htmlspecialchars($_REQUEST['name']);
 
         $stmt = $db->prepare('INSERT INTO categories(categoryname, budgetid) VALUES (:name, :budid)');
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
