@@ -6,9 +6,9 @@
         $inputpass = htmlspecialchars($_REQUEST['passwordBox']);
         
         
-//        $useridStmt = $db->prepare('SELECT password FROM users WHERE username = :username');
-//        $useridStmt->bindValue(':username', $user, PDO::PARAM_STR);
-//        $useridStmt->execute();
+        $useridStmt = $db->prepare('SELECT password FROM users WHERE username = :username');
+       // $useridStmt->bindValue(':username', $user, PDO::PARAM_STR);
+      //  $useridStmt->execute();
 //        
 //        $dbpass = $useridStmt->fetch(PDO::FETCH_ASSOC);
 //        
