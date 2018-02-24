@@ -44,7 +44,7 @@
         <div class="starter-template">
             <h1>Budget Creation</h1>
             <form action="./budgetProcessing.php" method="post">
-                <input type="text" name="name" placeholder="Budget Name"><br/><br/>
+                <input type="text" name="name" placeholder="Budget Name" required><br/><br/>
                 <input type="submit" name="create" class="btn btn-primary btn-md" value="Create">
             </form>
         </div>

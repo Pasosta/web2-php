@@ -47,8 +47,8 @@
         <div class="starter-template">
             <h1>Budget Application</h1>
             <form action="./loginProcessing.php" method="post">
-                <input type="text" name="userNameBox" placeholder="User Name"><br/><br/>
-                <input type="text" name="passwordBox" placeholder="Password"><br/><br/>
+                <input type="text" name="userNameBox" placeholder="User Name" required><br/><br/>
+                <input type="text" name="passwordBox" placeholder="Password" required><br/><br/>
                 <input type="submit" name="logIn" class="btn btn-primary btn-md" value="Log In">
             </form>
             <button class="btn btn-outline-success" onclick="location.href='./createAccount.php'">Create Account</button>
